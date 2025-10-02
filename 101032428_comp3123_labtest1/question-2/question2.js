@@ -10,7 +10,13 @@ function resolvedPromise() {
         resolve(message);
       }, 500)
     } else {
-      throw new Error("error: delayed exception!");
+      setTimeout(() => {
+        try {
+          throw new Error("error: delayed exception!");
+        } catch (e) {
+          console.error(e);
+        }
+      }, 500)
     }
   });
 
@@ -35,6 +41,7 @@ function rejectedPromise() {
   });
 }
 
+// Formatted output w/ question title
 console.log("");
 console.log("Question 2:")
 resolvedPromise()

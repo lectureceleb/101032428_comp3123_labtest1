@@ -1,8 +1,12 @@
+// Imports
 const fs = require('fs');
 const path = require('path');
+
+
 const logsDir = path.join(__dirname, "Logs");
 const fileContent = "This is a log file created by Omar";
 
+// Formatted output w/ question title
 console.log("");
 console.log("Question 3: Create directory and files")
 
@@ -20,11 +24,11 @@ fs.mkdir(logsDir, { recursive: true }, (error) => {
       console.error(`  Something went wrong, fam!`);
     }
 
+    // Create files one by one with verbose output
     for (let i = 1; i <= 10; i++) {
       const logFileName = `log${i}.omar`;
       const logFilePath = path.join(logsDir, logFileName);
 
-      //
       fs.writeFile(logFilePath, fileContent, (error) => {
         if (error) {
           console.log(`  Error creating ${logFileName}`);
@@ -32,11 +36,8 @@ fs.mkdir(logsDir, { recursive: true }, (error) => {
           console.error(`  File ${logFileName} was successfully created.`);
         }
       });
-
-
     }
   }
-
 });
 
 const logsPath = path.join(__dirname, "Logs");

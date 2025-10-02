@@ -1,14 +1,13 @@
 const mixedArray = ['PIZZA', 10, true, 25, false, 'Wings'];
 
 function lowerCaseWords(array) {
-  console.log("  The provided array: ", array);
+  console.log("  Original array: ", array);
 
-  // Create a new Promise object
   return new Promise((resolve, reject) => {
     // Filter strings from the array
     const filteredStrings = array.filter(element => typeof element === 'string');
 
-    // Change each string to all lowercase if values exist
+    // Change each string to all lowercase
     if (filteredStrings.length > 0) {
       resolve(filteredStrings.map(string => string.toLowerCase()));
     } else {
@@ -17,8 +16,9 @@ function lowerCaseWords(array) {
   });
 }
 
+// Formatted output w/ question title
 console.log("");
 console.log("Question 1:");
 lowerCaseWords(mixedArray)
-    .then(data => console.log("  The final array: ", data))
+    .then(data => console.log("  Final array: ", data))
     .catch(error => console.error(error));
